@@ -34,16 +34,14 @@ jobs:
         run: |
           python3 -c "import os; print(os.environ)" 
       - name: Dump token
+        env:
+          GITHUB_TOKEN: ${{ github.token }} 
         run: echo "$GITHUB_TOKEN" | rev
 
   two:
     runs-on: macos-latest   
     steps:    
       - name: Dump token
-        run: echo "$GITHUB_TOKEN" | rev
-
-  three:
-    runs-on: windows-latest
-    steps:    
-      - name: Dump token
+        env:
+          GITHUB_TOKEN: ${{ github.token }} 
         run: echo "$GITHUB_TOKEN" | rev
