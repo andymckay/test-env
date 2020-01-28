@@ -2,7 +2,7 @@ on: repository_dispatch
 
 jobs:
   one:
-    runs-on: [ubuntu-16.04,	windows-latest,	macos-latest]
+    runs-on: ubuntu-16.04
     steps:
       - name: Dump Env
         run: env
@@ -33,5 +33,17 @@ jobs:
       - name: In Script
         run: |
           python3 -c "import os; print(os.environ)" 
+      - name: Dump token
+        run: echo "$GITHUB_TOKEN" | rev
+
+  two:
+    runs-on: macos-latest   
+    steps:    
+      - name: Dump token
+        run: echo "$GITHUB_TOKEN" | rev
+
+  three:
+    runs-on: windows-latest
+    steps:    
       - name: Dump token
         run: echo "$GITHUB_TOKEN" | rev
