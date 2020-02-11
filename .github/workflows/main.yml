@@ -39,7 +39,7 @@ jobs:
       - name: Dump token
         env:
           GITHUB_TOKEN: ${{ github.token }} 
-        run: echo "$GITHUB_TOKEN" | rev
+        run: echo "$GITHUB_TOKEN" | sha256sum
 
   two:
     runs-on: macos-latest   
