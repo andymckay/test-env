@@ -1,4 +1,4 @@
-on: repository_dispatch
+on: [repository_dispatch, delete]
 
 jobs:
   one:
